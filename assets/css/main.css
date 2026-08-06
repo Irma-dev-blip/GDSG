@@ -1,0 +1,131 @@
+/* GDSG custom styles */
+:root {
+  --color-primary: #002819;
+  --color-primary-light: #06402b;
+  --color-secondary: #b32821;
+  --color-secondary-light: #fc5d4f;
+  --color-surface: #f7f9fb;
+  --color-surface-strong: #eceef0;
+  --color-surface-muted: #d8dadc;
+  --color-on-primary: #ffffff;
+  --color-on-surface: #191c1e;
+  --color-on-surface-muted: #404943;
+  --color-border: #c0c9c1;
+  --border-radius: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.site-header,
+.site-footer {
+  background-color: #ffffff;
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(192, 201, 193, 0.4);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(192, 201, 193, 0.4);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.navbar-nav .nav-link {
+  color: var(--color-on-surface-muted) !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-primary) !important;
+}
+
+.hero-section {
+  position: relative;
+  background-color: #ffffff;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0, 40, 25, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.card-soft {
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(192, 201, 193, 0.35);
+  background-color: #ffffff;
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+}
+
+.section-title h2 {
+  font-weight: 700;
+}
+
+.btn-primary-custom {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: 999px;
+  padding: 0.85rem 1.75rem;
+}
+
+.btn-primary-custom:hover,
+.btn-primary-custom:focus {
+  background-color: var(--color-primary-light);
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    background-color: #ffffff;
+    padding: 1rem;
+  }
+}
