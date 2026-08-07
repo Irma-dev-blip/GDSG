@@ -33,12 +33,9 @@ function asset_url($path)
         return rtrim($config['base_url'], '/') . '/' . $normalizedPath;
     }
 
-    if (!empty($_SERVER['REQUEST_URI'])) {
-        $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        if (strpos($requestPath, '/admin/') !== false || strpos($requestPath, '/admin') === 0) {
-            return '../' . $normalizedPath;
-        }
+    if (!empty($config['site_url'])) {
+        return rtrim($config['site_url'], '/') . '/' . $normalizedPath;
     }
 
-    return $normalizedPath;
+    return '/' . $normalizedPath;
 }

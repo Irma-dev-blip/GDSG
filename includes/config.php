@@ -11,7 +11,7 @@ return [
         'email' => 'admin@gdsg.org',
         'password' => 'admin123',
     ],
-    'base_url' => '',
+    'base_url' => '/',
     'db' => [
         'host' => 'localhost',
         'name' => 'gdsg',
