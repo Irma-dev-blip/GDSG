@@ -20,5 +20,6 @@ $config = require __DIR__ . '/config.php';
     <title><?php echo get_page_title($pageTitle ?? ''); ?></title>
 </head>
 <body class="site-shell">
+    <div class="scroll-progress"></div>
 <?php include __DIR__ . '/navbar.php'; ?>
 <main>

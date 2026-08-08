@@ -11,9 +11,9 @@ require __DIR__ . '/includes/header.php';
                 <p class="lead text-muted">Latest news, workshops, conferences, and research milestones from GDSG.</p>
             </div>
         </div>
-        <div class="row g-4 mt-4">
+        <div class="row g-4 mt-4 stagger">
             <div class="col-md-6 col-xl-4">
-                <article class="card card-soft image-card h-100">
+                <article class="card card-soft image-card h-100 tilt-card">
                     <img src="assets/images/World_environment_day_GDSG_Post.jpg" alt="World Environment Day GDSG announcement" class="image-card__media">
                     <div class="image-card__body">
                         <span class="badge bg-secondary text-white mb-2">News</span>
@@ -24,7 +24,7 @@ require __DIR__ . '/includes/header.php';
                 </article>
             </div>
             <div class="col-md-6 col-xl-4">
-                <article class="card card-soft image-card h-100">
+                <article class="card card-soft image-card h-100 tilt-card">
                     <img src="assets/images/Earth_day_Founder_Maria_Seminar.jpg" alt="Founder Maria at an Earth Day seminar" class="image-card__media">
                     <div class="image-card__body">
                         <span class="badge bg-secondary text-white mb-2">Event</span>
@@ -35,7 +35,7 @@ require __DIR__ . '/includes/header.php';
                 </article>
             </div>
             <div class="col-md-6 col-xl-4">
-                <article class="card card-soft image-card h-100">
+                <article class="card card-soft image-card h-100 tilt-card">
                     <img src="assets/images/Forest_fire_Severity_Murree_Kotli_Map.jpg" alt="Forest fire severity research map" class="image-card__media">
                     <div class="image-card__body">
                         <span class="badge bg-secondary text-white mb-2">Research</span>

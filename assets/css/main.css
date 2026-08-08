@@ -220,17 +220,20 @@ textarea {
   width: min(100%, 960px);
   min-height: clamp(540px, 72vh, 680px);
   display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
   place-items: start center;
   overflow: hidden;
   border-radius: 1.5rem;
 }
 
 .hero-visual {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
-  transform: translateY(-8%);
+  transform: translateY(0);
 }
 
 .hero-visual canvas {
@@ -243,15 +246,31 @@ textarea {
 .hero-panel {
   position: relative;
   z-index: 2;
-  width: min(100%, 960px);
-  margin-top: 2rem;
+  width: min(100%, 560px);
   padding: 3rem;
   border-radius: 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.55);
   background: rgba(255, 252, 205, 0.32);
   backdrop-filter: blur(4px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
-  text-align: center;
+  text-align: left;
+}
+
+@media (min-width: 992px) {
+  .hero-stage {
+    grid-template-columns: minmax(320px, 1fr) minmax(360px, 1.2fr);
+    align-items: center;
+    place-items: stretch center;
+  }
+
+  .hero-panel {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .hero-visual {
+    transform: translateY(0%);
+  }
 }
 
 .hero-badge {
@@ -750,5 +769,160 @@ textarea {
 
   .hero-panel h1 {
     font-size: 2.25rem;
+  }
+}
+
+/* =========================================================================
+   DEPTH & SCROLL MOTION EFFECTS — site-wide utilities
+   Extends the existing token system above; no new colors introduced.
+   Pair with assets/js/site-effects.js (vanilla, no CDN) included once
+   in includes/footer.php so every page gets these for free:
+     - .reveal / .reveal--right / .reveal--scale  → scroll-triggered entrance
+     - .stagger > *                                 → auto-delays children
+     - .tilt-card                                   → pointer-driven 3D tilt
+     - .parallax-bg / [data-parallax-speed]          → scroll parallax drift
+     - .scroll-progress                              → top progress bar
+     - .hero-stack                                   → layered depth card
+   ========================================================================= */
+
+:root {
+  --shadow-soft: 0 8px 30px rgba(23, 34, 42, 0.06);
+  --shadow-lift: 0 18px 42px rgba(23, 34, 42, 0.12);
+  --ease-depth: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --reveal-distance: 32px;
+  --reveal-duration: 0.8s;
+}
+
+/* --- scroll progress bar, sits under the sticky header --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  z-index: 1040;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-secondary));
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* --- generic scroll-reveal, toggled by IntersectionObserver in JS --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition: opacity var(--reveal-duration) var(--ease-depth),
+              transform var(--reveal-duration) var(--ease-depth);
+  will-change: opacity, transform;
+}
+.reveal--right {
+  transform: translateX(var(--reveal-distance));
+}
+.reveal--scale {
+  transform: scale(0.94);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* stagger children automatically — JS assigns --stagger-index per child */
+.stagger > * {
+  transition-delay: calc(var(--stagger-index, 0) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--right,
+  .reveal--scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* --- pointer-driven 3D tilt for info/project cards ---
+   apply alongside existing card classes, e.g.
+   <article class="info-card tilt-card"> */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.35s var(--ease-depth), box-shadow 0.35s ease;
+  will-change: transform;
+}
+.tilt-card:hover {
+  box-shadow: var(--shadow-lift);
+}
+.tilt-card__inner {
+  transform: translateZ(28px);
+}
+
+@media (hover: none) {
+  .tilt-card {
+    transform: none !important;
+  }
+}
+
+/* --- parallax background drift, applied to hero dotted layer or any bg --- */
+.parallax-bg,
+[data-parallax-speed] {
+  will-change: transform;
+}
+
+/* --- layered "depth-field" hero card stack ---
+   drop this markup around .hero-panel:
+   <div class="hero-stack">
+     <div class="hero-stack__shadow" aria-hidden="true"></div>
+     <div class="hero-panel"> ... existing content ... </div>
+   </div> */
+.hero-stack {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 960px);
+  margin-top: 2rem;
+}
+.hero-stack__shadow {
+  position: absolute;
+  inset: 0.9rem -0.6rem -0.6rem 0.6rem;
+  border-radius: 1.5rem;
+  background: rgba(31, 127, 78, 0.14);
+  border: 1px solid rgba(31, 127, 78, 0.2);
+  transform: translateZ(0);
+  z-index: -1;
+}
+.hero-stack .hero-panel {
+  margin-top: 0;
+}
+
+/* --- scroll-cue, sits at the bottom of the hero, consistent with the
+   pill/outline language already used for buttons --- */
+.scroll-cue {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  z-index: 2;
+}
+.scroll-cue__line {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(#ffffff, transparent);
+  animation: scroll-cue-move 1.8s ease-in-out infinite;
+}
+@keyframes scroll-cue-move {
+  0%, 100% { transform: scaleY(1); opacity: 0.9; }
+  50% { transform: scaleY(0.45); opacity: 0.4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue__line {
+    animation: none;
   }
 }

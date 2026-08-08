@@ -14,7 +14,7 @@ require __DIR__ . '/includes/header.php';
                 <a href="#publication-list" class="btn btn-outline-primary">Browse publications</a>
             </div>
         </div>
-        <div class="card card-soft p-4 mt-4">
+        <div class="card card-soft p-4 mt-4 reveal">
             <div class="row g-3">
                 <div class="col-md-4">
                     <input type="text" class="form-control" placeholder="Search publications...">
@@ -42,9 +42,9 @@ require __DIR__ . '/includes/header.php';
                 </div>
             </div>
         </div>
-        <div id="publication-list" class="row g-4 mt-4">
+        <div id="publication-list" class="row g-4 mt-4 stagger">
             <div class="col-md-6 col-xl-4">
-                <article class="card card-soft image-card h-100">
+                <article class="card card-soft image-card h-100 tilt-card">
                     <img src="assets/images/journal_of_agriculture_policy_and_transformation.jpg" alt="Journal cover for agriculture policy and transformation" class="image-card__media publication-card__media">
                     <div class="image-card__body d-flex flex-column">
                         <span class="text-muted">Journal Article</span>
@@ -55,7 +55,7 @@ require __DIR__ . '/includes/header.php';
                 </article>
             </div>
             <div class="col-md-6 col-xl-4">
-                <article class="card card-soft image-card h-100">
+                <article class="card card-soft image-card h-100 tilt-card">
                     <img src="assets/images/journal_of_public_policy_practitioners_article.jpg" alt="Public policy practitioners journal article" class="image-card__media publication-card__media">
                     <div class="image-card__body d-flex flex-column">
                         <span class="text-muted">Policy Research</span>
@@ -66,7 +66,7 @@ require __DIR__ . '/includes/header.php';
                 </article>
             </div>
             <div class="col-md-6 col-xl-4">
-                <article class="card card-soft image-card h-100">
+                <article class="card card-soft image-card h-100 tilt-card">
                     <img src="assets/images/Optimizing_agriculture_policy_journal.jpg" alt="Optimizing agriculture policy journal cover" class="image-card__media publication-card__media">
                     <div class="image-card__body d-flex flex-column">
                         <span class="text-muted">Research Paper</span>

@@ -9,13 +9,13 @@ require __DIR__ . '/includes/header.php';
             <div class="col-lg-8">
                 <h1 class="display-6 fw-bold">Urban Heat Island Mitigation Modeling</h1>
                 <p class="lead text-muted">A project that blends satellite data, thermal analysis, and GeoAI to support sustainable urban planning and environmental resilience.</p>
-                <div class="card p-4 card-soft mb-4">
+                <div class="card p-4 card-soft mb-4 reveal">
                     <h3 class="h5">Project Overview</h3>
                     <p class="text-muted">This research combines multi-temporal satellite observations, urban microclimate models, and machine learning to develop mitigation strategies for heat island effects in cities.</p>
                 </div>
-                <div class="row g-4">
+                <div class="row g-4 stagger">
                     <div class="col-md-6">
-                        <div class="card p-4 card-soft">
+                        <div class="card p-4 card-soft tilt-card">
                             <h4>Objectives</h4>
                             <ul class="text-muted">
                                 <li>Model urban temperature dynamics</li>
@@ -25,13 +25,13 @@ require __DIR__ . '/includes/header.php';
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card p-4 card-soft">
+                        <div class="card p-4 card-soft tilt-card">
                             <h4>Technologies</h4>
                             <p class="text-muted">Remote sensing, GeoAI, machine learning, GIS analytics.</p>
                         </div>
                     </div>
                 </div>
-                <div class="card p-4 card-soft mt-4">
+                <div class="card p-4 card-soft mt-4 reveal">
                     <h4>Related Publications</h4>
                     <ul class="list-unstyled mb-0 text-muted">
                         <li>Spatiotemporal Deep Learning for Urban Heat Island Mitigation Strategies</li>
