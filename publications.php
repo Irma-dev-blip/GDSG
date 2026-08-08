@@ -43,35 +43,38 @@ require __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div id="publication-list" class="row g-4 mt-4">
-            <div class="col-12">
-                <div class="card card-soft p-4">
-                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
-                        <div>
-                            <span class="text-muted">IEEE TGRS • Vol 62</span>
-                            <h3 class="mt-2">Spatiotemporal Deep Learning for Urban Heat Island Mitigation Strategies</h3>
-                            <p class="text-muted mb-1">K. Wu, L. Martinez, Dr. S. Patel</p>
-                        </div>
-                        <div class="d-flex gap-2 align-items-center">
-                            <a href="#" class="btn btn-outline-secondary btn-sm">PDF</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm">DOI</a>
-                        </div>
+            <div class="col-md-6 col-xl-4">
+                <article class="card card-soft image-card h-100">
+                    <img src="assets/images/journal_of_agriculture_policy_and_transformation.jpg" alt="Journal cover for agriculture policy and transformation" class="image-card__media publication-card__media">
+                    <div class="image-card__body d-flex flex-column">
+                        <span class="text-muted">Journal Article</span>
+                        <h3 class="h5 mt-2">Agriculture Policy and Transformation</h3>
+                        <p class="text-muted">Research on policy, land systems, and data-informed agricultural change.</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm align-self-start mt-auto">View publication</a>
                     </div>
-                </div>
+                </article>
             </div>
-            <div class="col-12">
-                <div class="card card-soft p-4">
-                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
-                        <div>
-                            <span class="text-muted">Nature Geoscience • 2024</span>
-                            <h3 class="mt-2">Foundation Models for Multi-Modal Earth Observation at Scale</h3>
-                            <p class="text-muted mb-1">Dr. E. Sterling, J. Chen, M. Rossi, Dr. A. Vance</p>
-                        </div>
-                        <div class="d-flex gap-2 align-items-center">
-                            <a href="#" class="btn btn-outline-secondary btn-sm">PDF</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm">DOI</a>
-                        </div>
+            <div class="col-md-6 col-xl-4">
+                <article class="card card-soft image-card h-100">
+                    <img src="assets/images/journal_of_public_policy_practitioners_article.jpg" alt="Public policy practitioners journal article" class="image-card__media publication-card__media">
+                    <div class="image-card__body d-flex flex-column">
+                        <span class="text-muted">Policy Research</span>
+                        <h3 class="h5 mt-2">Journal of Public Policy Practitioners</h3>
+                        <p class="text-muted">Translating geospatial evidence into practical public policy decisions.</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm align-self-start mt-auto">View publication</a>
                     </div>
-                </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <article class="card card-soft image-card h-100">
+                    <img src="assets/images/Optimizing_agriculture_policy_journal.jpg" alt="Optimizing agriculture policy journal cover" class="image-card__media publication-card__media">
+                    <div class="image-card__body d-flex flex-column">
+                        <span class="text-muted">Research Paper</span>
+                        <h3 class="h5 mt-2">Optimizing Agriculture Policy</h3>
+                        <p class="text-muted">Spatial analysis approaches for more resilient agricultural planning.</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm align-self-start mt-auto">View publication</a>
+                    </div>
+                </article>
             </div>
         </div>
     </div>

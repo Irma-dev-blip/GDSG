@@ -12,26 +12,32 @@ require __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div class="row g-4 mt-4">
-            <div class="col-md-4">
-                <div class="card p-4 card-soft h-100 text-center">
-                    <img src="assets/images/placeholder.svg" alt="Dr. Elena Rostova" class="rounded-circle mb-3" width="120" height="120">
-                    <h3 class="h5">Dr. Elena Rostova</h3>
-                    <p class="text-muted">Lead Scientist</p>
-                </div>
+            <div class="col-md-6 col-xl-4">
+                <article class="card card-soft image-card h-100">
+                    <img src="assets/images/Team_picture.jpg" alt="GDSG research team together" class="image-card__media team-card__media">
+                    <div class="image-card__body">
+                        <h3 class="h5">GDSG Research Collective</h3>
+                        <p class="text-muted mb-0">A collaborative team connecting geospatial science, AI, and environmental research.</p>
+                    </div>
+                </article>
             </div>
-            <div class="col-md-4">
-                <div class="card p-4 card-soft h-100 text-center">
-                    <img src="assets/images/placeholder.svg" alt="Marcus Chen" class="rounded-circle mb-3" width="120" height="120">
-                    <h3 class="h5">Marcus Chen</h3>
-                    <p class="text-muted">Ph.D. Researcher</p>
-                </div>
+            <div class="col-md-6 col-xl-4">
+                <article class="card card-soft image-card h-100">
+                    <img src="assets/images/Founder_maria_with_Girl.jpg" alt="GDSG founder with a young participant" class="image-card__media team-card__media">
+                    <div class="image-card__body">
+                        <h3 class="h5">Research Leadership</h3>
+                        <p class="text-muted mb-0">Guiding impactful research and building the next generation of geospatial leaders.</p>
+                    </div>
+                </article>
             </div>
-            <div class="col-md-4">
-                <div class="card p-4 card-soft h-100 text-center">
-                    <img src="assets/images/placeholder.svg" alt="Sarah Jenkins" class="rounded-circle mb-3" width="120" height="120">
-                    <h3 class="h5">Sarah Jenkins</h3>
-                    <p class="text-muted">Geospatial Analyst</p>
-                </div>
+            <div class="col-md-6 col-xl-4">
+                <article class="card card-soft image-card h-100">
+                    <img src="assets/images/Earth_day_Founder_Maria_Seminar.jpg" alt="Founder Maria speaking at an Earth Day seminar" class="image-card__media team-card__media">
+                    <div class="image-card__body">
+                        <h3 class="h5">Knowledge In Action</h3>
+                        <p class="text-muted mb-0">Sharing practical insight through seminars, partnerships, and open scientific dialogue.</p>
+                    </div>
+                </article>
             </div>
         </div>
     </div>

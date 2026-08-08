@@ -8,11 +8,14 @@ require __DIR__ . '/includes/header.php';
         <div class="hero-stage">
             <div class="hero-visual" id="home-three-visual" aria-hidden="true"></div>
             <div class="hero-panel">
-                <span class="hero-badge">Global Data Observatory Active</span>
+                <div class="hero-badge" role="status">
+                    <span class="hero-badge__dot" aria-hidden="true"></span>
+                    <span>Global Data Observatory Active</span>
+                </div>
                 <h1>Advancing Geospatial Intelligence</h1>
                 <p>Bridging Artificial Intelligence and Earth Observation to decode complex spatial dynamics, model environmental shifts, and engineer sustainable urban futures through rigorous scientific inquiry.</p>
                 <div class="hero-actions">
-                    <a href="research.php" class="btn btn-primary-custom">Explore Research</a>
+                    <a href="research.php" class="btn btn-outline-secondary">Explore Research</a>
                     <a href="publications.php" class="btn btn-outline-secondary">View Publications</a>
                 </div>
             </div>
@@ -40,8 +43,8 @@ require __DIR__ . '/includes/header.php';
 
     const globeGeometry = new THREE.IcosahedronGeometry(1.8, 5);
     const globeMaterial = new THREE.MeshStandardMaterial({
-        color: 0x0b4d31,
-        emissive: 0x06271a,
+        color: 0x1f7f4e,
+        emissive: 0x3366e0,
         metalness: 0.15,
         roughness: 0.7,
         transparent: true,
@@ -70,7 +73,7 @@ require __DIR__ . '/includes/header.php';
     }
     pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     const pointsMaterial = new THREE.PointsMaterial({
-        color: 0xb32821,
+        color: 0xd52f2f,
         size: 0.035,
         transparent: true,
         opacity: 0.9
@@ -123,21 +126,21 @@ require __DIR__ . '/includes/header.php';
         <div class="row g-4">
             <div class="col-lg-4">
                 <article class="info-card hover-reveal-accent">
-                    <div class="card-icon">psychology</div>
+                    <a class="btn btn-core-domain" href="#">psychology</a>
                     <h3>GeoAI</h3>
                     <p>Developing advanced machine learning architectures specialized for spatial datasets, topological neural networks, and generative modeling of geographic phenomena.</p>
                 </article>
             </div>
             <div class="col-lg-4">
                 <article class="info-card hover-reveal-accent">
-                    <div class="card-icon">public</div>
+                    <a class="btn btn-core-domain" href="#">public</a>
                     <h3>Earth Observation</h3>
                     <p>Processing multi-spectral satellite imagery and LiDAR data to monitor environmental change, track deforestation, and quantify urban sprawl dynamics.</p>
                 </article>
             </div>
             <div class="col-lg-4">
                 <article class="info-card hover-reveal-accent">
-                    <div class="card-icon">hub</div>
+                    <a class="btn btn-core-domain" href="#">hub</a>
                     <h3>Spatial Analytics</h3>
                     <p>Leveraging geospatial statistics to model climate risk, urban systems, and environmental resilience with rigorous scientific methods.</p>
                 </article>
@@ -157,7 +160,7 @@ require __DIR__ . '/includes/header.php';
         <div class="row g-4">
             <div class="col-lg-6">
                 <article class="project-card">
-                    <div class="project-card__media project-card__media--one"></div>
+                    <img src="assets/images/Agriculture_area_under_flood_GDSG_map.jpg" alt="Agricultural flood impact map" class="project-card__media">
                     <div class="project-card__body">
                         <span class="project-pill">Grant Awarded</span>
                         <h3>Urban Heat Island Mitigation Modeling</h3>
@@ -168,7 +171,7 @@ require __DIR__ . '/includes/header.php';
             </div>
             <div class="col-lg-6">
                 <article class="project-card">
-                    <div class="project-card__media project-card__media--two"></div>
+                    <img src="assets/images/Forest_fire_Severity_Murree_Kotli_Map.jpg" alt="Forest fire severity map" class="project-card__media">
                     <div class="project-card__body">
                         <span class="project-pill project-pill--accent">New</span>
                         <h3>Topological Neural Networks for Spatial Graphs</h3>

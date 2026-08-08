@@ -26,8 +26,10 @@
             </div>
             <div class="footer-column">
                 <h6>Contact</h6>
-                <p class="mb-1">Email: info@gdsg.org</p>
-                <p class="mb-1">Phone: +1 (555) 123-4567</p>
+                <p class="mb-1"><a href="https://www.linkedin.com/company/geospatial-data-science-group/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+                <p class="mb-0"><a href="https://www.facebook.com/profile.php?viewas=100000686899395&amp;id=61567873319375" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+                <p class="mb-1">Email: <a href="mailto:info@gdsg.org">info@gdsg.org</a></p>
+                <p class="mb-1">Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
                 <p class="mb-0">Office hours: Mon - Fri, 9:00 AM - 6:00 PM</p>
             </div>
         </div>
