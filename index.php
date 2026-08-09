@@ -75,7 +75,7 @@ require __DIR__ . '/includes/header.php';
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: radial-gradient(ellipse at 50% 18%, #eef5ff 0%, #f9fbfd 45%, #edf2f7 100%);
+    background: radial-gradient(ellipse at 50% 18%, #e8f5ee 0%, #f3faf7 45%, #e5f1ed 100%);
   }
 
   /* soft vignette so the overlay card reads as sitting in front of the
@@ -151,6 +151,10 @@ require __DIR__ . '/includes/header.php';
   .gdo-btn--solid:hover { background: var(--gdo-terrain-bright); border-color: var(--gdo-terrain-bright); color: #0a0f14; transform: translateY(-1px); }
   .gdo-btn--ghost { color: var(--gdo-ink); background: transparent; }
   .gdo-btn--ghost:hover { border-color: var(--gdo-signal); color: var(--gdo-signal); transform: translateY(-1px); }
+  .hero-actions .gdo-btn--solid { background: #c94343; border-color: #c94343; color: #ffffff; }
+  .hero-actions .gdo-btn--solid:hover { background: #a93232; border-color: #a93232; color: #ffffff; }
+  .hero-actions .gdo-btn--ghost { border-color: #c94343; color: #c94343; }
+  .hero-actions .gdo-btn--ghost:hover { border-color: #a93232; color: #a93232; }
 
   /* --- 3D stage canvas --- */
   #home-three-visual {
@@ -168,7 +172,7 @@ require __DIR__ . '/includes/header.php';
 
   .drag-hint {
     position: absolute;
-    top: 6%;
+    top: 11%;
     right: 4%;
     display: inline-flex;
     align-items: center;
@@ -220,6 +224,14 @@ require __DIR__ . '/includes/header.php';
 
   /* ============ SECTION SCAFFOLDING ============ */
   .gdo-section { position: relative; padding: 6.5rem 0; }
+  .gdo-section--domains {
+    background: linear-gradient(135deg, rgba(15, 62, 51, 0.78), rgba(15, 43, 60, 0.82));
+  }
+  .gdo-section--reports {
+    background: linear-gradient(135deg, rgba(15, 62, 51, 0.78), rgba(15, 43, 60, 0.82));
+  }
+  .gdo-section--domains .gdo-heading__eyebrow { color: #c94343; font-weight: 800; }
+  .gdo-section--reports .gdo-heading__eyebrow { color: #c94343; font-weight: 800; }
   .gdo-section--alt { background: linear-gradient(180deg, transparent, rgba(15,23,32,0.6) 12%, rgba(15,23,32,0.6) 88%, transparent); }
 
   .gdo-heading__eyebrow {
@@ -235,7 +247,7 @@ require __DIR__ . '/includes/header.php';
 
   /* ============ INSTRUMENT PANELS (core domains) ============ */
   .gdo-panel {
-    position: relative; background: var(--gdo-panel); border: 1px solid var(--gdo-line);
+    position: relative; background: rgba(31, 91, 76, 0.88); border: 1px solid var(--gdo-line);
     padding: 2.1rem 1.9rem 1.8rem; height: 100%; opacity: 1; transform: none;
   }
   .gdo-panel::before, .gdo-panel::after {
@@ -252,7 +264,7 @@ require __DIR__ . '/includes/header.php';
   .gdo-panel p { font-family: var(--gdo-font-body); color: var(--gdo-muted); font-size: 0.95rem; line-height: 1.6; }
 
   /* ============ FIELD REPORT CARDS (projects) ============ */
-  .gdo-report { background: var(--gdo-panel); border: 1px solid var(--gdo-line); overflow: hidden; height: 100%; opacity: 1; transform: none; }
+  .gdo-report { background: rgba(31, 91, 76, 0.88); border: 1px solid var(--gdo-line); overflow: hidden; height: 100%; opacity: 1; transform: none; }
   .gdo-report__media-wrap { position: relative; aspect-ratio: 16/9; overflow: hidden; }
   .gdo-report__media { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) contrast(1.05); transition: transform 0.6s ease, filter 0.6s ease; }
   .gdo-report:hover .gdo-report__media { transform: scale(1.045); filter: saturate(1.05) contrast(1.08); }
@@ -262,7 +274,7 @@ require __DIR__ . '/includes/header.php';
     transform: translateY(-100%); transition: transform 1.1s ease;
   }
   .gdo-report:hover .gdo-report__scanline { transform: translateY(100%); }
-  .gdo-report__body { padding: 1.6rem 1.7rem 1.9rem; }
+  .gdo-report__body { padding: 1.6rem 1.7rem 1.9rem; background: rgba(31, 91, 76, 0.88); }
   .gdo-pill {
     font-family: var(--gdo-font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--gdo-terrain-bright); border: 1px solid rgba(79,174,124,0.4); padding: 0.25rem 0.6rem; border-radius: 2px; display: inline-block; margin-bottom: 0.9rem;
@@ -276,15 +288,17 @@ require __DIR__ . '/includes/header.php';
   /* ============ NEWSLETTER STRIP ============ */
   .gdo-newsletter {
     display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap;
-    border: 1px solid var(--gdo-line-bright); padding: 2.6rem 2.8rem; position: relative; background: var(--gdo-panel);
+    border: 1px solid rgba(115, 174, 192, 0.7); padding: 2.6rem 2.8rem; position: relative; background: #dff2f7;
     opacity: 1; transform: none;
   }
   .gdo-newsletter::before {
     content: 'SIG // DIGEST'; position: absolute; top: -0.6rem; left: 2rem; background: var(--gdo-bg);
     padding: 0 0.6rem; font-family: var(--gdo-font-mono); font-size: 0.65rem; letter-spacing: 0.14em; color: var(--gdo-signal);
   }
-  .gdo-newsletter h2 { font-family: var(--gdo-font-display); font-style: italic; font-weight: 500; font-size: 1.9rem; color: var(--gdo-ink); margin-bottom: 0.4rem; }
-  .gdo-newsletter p { font-family: var(--gdo-font-body); color: var(--gdo-muted); margin: 0; }
+  .gdo-newsletter h2 { font-family: var(--gdo-font-display); font-style: italic; font-weight: 500; font-size: 1.9rem; color: #123846; margin-bottom: 0.4rem; }
+  .gdo-newsletter p { font-family: var(--gdo-font-body); color: #365763; margin: 0; }
+  .gdo-newsletter .gdo-btn--solid { background: #c94343; border-color: #c94343; color: #ffffff; }
+  .gdo-newsletter .gdo-btn--solid:hover { background: #a93232; border-color: #a93232; color: #ffffff; }
 
   @media (prefers-reduced-motion: reduce) {
     .gdo-panel, .gdo-report, .gdo-newsletter { opacity: 1 !important; transform: none !important; }
@@ -323,7 +337,7 @@ require __DIR__ . '/includes/header.php';
             <p>Bridging artificial intelligence and Earth observation to decode complex spatial dynamics, model environmental shifts, and engineer sustainable urban futures through rigorous scientific inquiry.</p>
             <div class="hero-actions">
               <a href="research.php" class="gdo-btn gdo-btn--solid">Explore Research</a>
-              <a href="publications.php" class="gdo-btn gdo-btn--ghost">View Publications</a>
+              <a href="publications.php" class="gdo-btn gdo-btn--solid">View Publications</a>
             </div>
           </div>
         </div>
@@ -333,7 +347,7 @@ require __DIR__ . '/includes/header.php';
     </div>
   </section>
 
-  <section class="gdo-section">
+  <section class="gdo-section gdo-section--domains">
     <div class="container">
       <div class="gdo-heading" style="margin-bottom: 3rem;">
         <span class="gdo-heading__eyebrow">01 — Core Domains</span>
@@ -365,7 +379,7 @@ require __DIR__ . '/includes/header.php';
     </div>
   </section>
 
-  <section class="gdo-section gdo-section--alt">
+  <section class="gdo-section gdo-section--alt gdo-section--reports">
     <div class="container">
       <div class="gdo-heading gdo-heading--split">
         <div class="gdo-heading">
@@ -383,7 +397,7 @@ require __DIR__ . '/includes/header.php';
               <div class="gdo-report__scanline"></div>
             </div>
             <div class="gdo-report__body">
-              <span class="gdo-pill">Grant Awarded</span>
+              <span class="gdo-pill gdo-pill--accent">Grant Awarded</span>
               <h3>Urban Heat Island Mitigation Modeling</h3>
               <p>Applying spatiotemporal deep learning to support urban cooling strategies and greenhouse gas reduction planning.</p>
               <a href="project.php">View project details →</a>
@@ -550,7 +564,7 @@ require __DIR__ . '/includes/header.php';
   glowSprite.scale.set(2.6, 2.6, 1);
   badgeGroup.add(glowSprite);
 
-  var badgeGeo = new THREE.PlaneGeometry(1.5, 1.5);
+  var badgeGeo = new THREE.PlaneGeometry(1.15, 1.9);
   var badgeMat = new THREE.MeshBasicMaterial({ map: logoTexture.clone(), transparent: true, depthWrite: false });
   badgeMat.map.wrapS = THREE.ClampToEdgeWrapping;
   badgeMat.map.repeat.set(1, 1);
