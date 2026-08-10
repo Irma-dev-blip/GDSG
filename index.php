@@ -100,8 +100,10 @@ require __DIR__ . '/includes/header.php';
 
   .hero-overlay-panel {
     position: relative;
-    max-width: 560px;
-    background: rgba(10, 15, 20, 0.52);
+    width: min(100%, 960px);
+    min-height: 250px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, rgba(51, 102, 224, 0.38) 0%, rgba(31, 127, 78, 0.38) 100%);
     border: 1px solid var(--gdo-line-bright);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -111,20 +113,18 @@ require __DIR__ . '/includes/header.php';
 
   @media (max-width: 767px) {
     .hero-pin-wrapper.scroll-wrapper { height: 200vh; }
-    .hero-overlay-panel { max-width: 100%; padding: 1.6rem 1.8rem; }
+    .hero-overlay-panel { width: 100%; min-height: auto; padding: 1.6rem 1.8rem; }
     .hero-pin-stage .hero-container { padding-bottom: 6%; }
   }
 
   .hero-badge {
     display: inline-flex; align-items: center; gap: 0.55rem;
     font-family: var(--gdo-font-mono); font-size: 0.72rem; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--gdo-signal);
-    border: 1px solid rgba(232,163,61,0.35); border-radius: 999px;
-    padding: 0.4rem 0.85rem 0.4rem 0.7rem; margin-bottom: 1.75rem;
-    background: rgba(232,163,61,0.06);
+    text-transform: uppercase; color: var(--color-primary);
+    margin-bottom: 1.75rem;
   }
   .hero-badge__dot {
-    width: 7px; height: 7px; border-radius: 50%; background: var(--gdo-signal);
+    width: 7px; height: 7px; border-radius: 50%; background: var(--color-primary);
     box-shadow: 0 0 0 0 rgba(232,163,61,0.6);
     animation: gdo-pulse 2.2s infinite;
   }
@@ -137,9 +137,9 @@ require __DIR__ . '/includes/header.php';
   .gdo-hero h1 {
     font-family: var(--gdo-font-display); font-weight: 500; font-style: italic;
     font-size: clamp(2.4rem, 4.4vw, 3.6rem); line-height: 1.06; letter-spacing: -0.01em;
-    color: var(--gdo-ink); margin-bottom: 1.25rem;
+    color: #000000; margin-bottom: 1.25rem;
   }
-  .gdo-hero p { font-family: var(--gdo-font-body); font-size: 1.05rem; line-height: 1.65; color: var(--gdo-muted); max-width: 46ch; margin-bottom: 2.25rem; }
+  .gdo-hero p { font-family: var(--gdo-font-body); font-size: 1.05rem; line-height: 1.65; color: #ffffff; max-width: 46ch; margin-bottom: 2.25rem; }
 
   .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
   .gdo-btn {
@@ -169,29 +169,6 @@ require __DIR__ . '/includes/header.php';
   }
   #home-three-visual.is-dragging { cursor: grabbing; }
   #home-three-visual canvas { display: block; width: 100%; height: 100%; }
-
-  .drag-hint {
-    position: absolute;
-    top: 11%;
-    right: 4%;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gdo-muted);
-    background: rgba(10,15,20,0.55);
-    border: 1px solid var(--gdo-line-bright);
-    border-radius: 999px;
-    padding: 0.35rem 0.75rem;
-    z-index: 5;
-    pointer-events: none;
-    opacity: 0.9;
-    transition: opacity 0.4s ease;
-  }
-  .drag-hint.is-hidden { opacity: 0; }
 
   .gdo-hud { position: absolute; inset: 0; pointer-events: none; font-family: var(--gdo-font-mono); z-index: 5; }
   .gdo-hud__corner {
@@ -225,12 +202,12 @@ require __DIR__ . '/includes/header.php';
   /* ============ SECTION SCAFFOLDING ============ */
   .gdo-section { position: relative; padding: 6.5rem 0; }
   .gdo-section--domains {
-    background: linear-gradient(135deg, rgba(15, 62, 51, 0.78), rgba(15, 43, 60, 0.82));
+    background: linear-gradient(135deg, rgba(15, 62, 51, 0.62), rgba(15, 43, 60, 0.68));
   }
+  .gdo-section--domains .gdo-heading__eyebrow { color: #d52f2f; font-weight: 800; }
   .gdo-section--reports {
-    background: linear-gradient(135deg, rgba(15, 62, 51, 0.78), rgba(15, 43, 60, 0.82));
+    background: linear-gradient(135deg, rgba(15, 62, 51, 0.62), rgba(15, 43, 60, 0.68));
   }
-  .gdo-section--domains .gdo-heading__eyebrow { color: #c94343; font-weight: 800; }
   .gdo-section--reports .gdo-heading__eyebrow { color: #c94343; font-weight: 800; }
   .gdo-section--alt { background: linear-gradient(180deg, transparent, rgba(15,23,32,0.6) 12%, rgba(15,23,32,0.6) 88%, transparent); }
 
@@ -313,8 +290,6 @@ require __DIR__ . '/includes/header.php';
       <div class="hero-pin-stage">
         <div id="home-three-visual" aria-hidden="true"></div>
 
-        <div class="drag-hint" id="drag-hint">Drag to rotate</div>
-
         <div class="gdo-hud" aria-hidden="true">
           <div class="gdo-hud__corner gdo-hud__corner--tl"></div>
           <div class="gdo-hud__corner gdo-hud__corner--tr"></div>
@@ -357,21 +332,21 @@ require __DIR__ . '/includes/header.php';
         <div class="col-lg-4">
           <article class="gdo-panel">
             <span class="gdo-panel__signal">Signal // Spatial-ML</span>
-            <h3>GeoAI</h3>
+            <h3 class="geoai-domain-title">GeoAI</h3>
             <p>Developing advanced machine learning architectures specialized for spatial datasets, topological neural networks, and generative modeling of geographic phenomena.</p>
           </article>
         </div>
         <div class="col-lg-4">
           <article class="gdo-panel">
             <span class="gdo-panel__signal">Signal // EO-Sensing</span>
-            <h3>Earth Observation</h3>
+            <h3 class="blue-domain-title">Earth Observation</h3>
             <p>Processing multi-spectral satellite imagery and LiDAR data to monitor environmental change, track deforestation, and quantify urban sprawl dynamics.</p>
           </article>
         </div>
         <div class="col-lg-4">
           <article class="gdo-panel">
             <span class="gdo-panel__signal">Signal // Geostatistics</span>
-            <h3>Spatial Analytics</h3>
+            <h3 class="blue-domain-title">Spatial Analytics</h3>
             <p>Leveraging geospatial statistics to model climate risk, urban systems, and environmental resilience with rigorous scientific methods.</p>
           </article>
         </div>
@@ -390,31 +365,42 @@ require __DIR__ . '/includes/header.php';
         <a href="projects.php" class="gdo-btn gdo-btn--ghost">View all projects</a>
       </div>
       <div class="row g-4 stagger">
-        <div class="col-lg-6">
+        <div class="col-md-6 col-lg-4">
           <article class="gdo-report">
             <div class="gdo-report__media-wrap">
-              <img src="assets/images/Agriculture_area_under_flood_GDSG_map.jpg" alt="Agricultural flood impact map" class="gdo-report__media">
+              <img src="assets/images/Agriculture_area_under_flood_GDSG_map.jpg" alt="Punjab air quality forecast map" class="gdo-report__media">
               <div class="gdo-report__scanline"></div>
             </div>
             <div class="gdo-report__body">
-              <span class="gdo-pill gdo-pill--accent">Grant Awarded</span>
-              <h3>Urban Heat Island Mitigation Modeling</h3>
-              <p>Applying spatiotemporal deep learning to support urban cooling strategies and greenhouse gas reduction planning.</p>
-              <a href="project.php">View project details →</a>
+              <h3 class="blue-domain-title">Smog Monitoring &amp; AQI Forecasting System</h3>
+              <p>An environmental intelligence platform that monitors pollution across Punjab, explains district-level sources, and forecasts future smog conditions.</p>
+              <a href="project.php?project=smog">View project details →</a>
             </div>
           </article>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6 col-lg-4">
           <article class="gdo-report">
             <div class="gdo-report__media-wrap">
-              <img src="assets/images/Forest_fire_Severity_Murree_Kotli_Map.jpg" alt="Forest fire severity map" class="gdo-report__media">
+              <img src="assets/images/Forest_fire_Severity_Murree_Kotli_Map.jpg" alt="Location intelligence map" class="gdo-report__media">
               <div class="gdo-report__scanline"></div>
             </div>
             <div class="gdo-report__body">
-              <span class="gdo-pill gdo-pill--accent">New</span>
-              <h3>Topological Neural Networks for Spatial Graphs</h3>
-              <p>Designing graph-based GeoAI models to interpret complex spatial relationships in infrastructure and environmental networks.</p>
-              <a href="project.php">View project details →</a>
+              <h3 class="blue-domain-title">HumMuqaam – Intelligent Geospatial Addressing System</h3>
+              <p>A national-scale digital location framework that converts administrative boundaries, addresses, and hierarchical grid cells into precise D-Codes.</p>
+              <a href="project.php?project=hummuqaam">View project details →</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="gdo-report">
+            <div class="gdo-report__media-wrap">
+              <img src="assets/images/geo-satellite.jpg" alt="Crop knowledge platform" class="gdo-report__media">
+              <div class="gdo-report__scanline"></div>
+            </div>
+            <div class="gdo-report__body">
+              <h3 class="blue-domain-title">Crop Library</h3>
+              <p>A searchable agricultural knowledge platform for structured crop profiles, field practices, environmental requirements, and evidence-led decisions.</p>
+              <a href="project.php?project=crop-library">View project details →</a>
             </div>
           </article>
         </div>
@@ -466,7 +452,6 @@ require __DIR__ . '/includes/header.php';
 
   var wrapper = document.querySelector('.hero-pin-wrapper.scroll-wrapper');
   var container = document.getElementById('home-three-visual');
-  var dragHint = document.getElementById('drag-hint');
   var width = container.clientWidth || window.innerWidth;
   var height = container.clientHeight || window.innerHeight;
 
@@ -586,21 +571,12 @@ require __DIR__ . '/includes/header.php';
   var targetRotY = 0, targetRotX = 0;
   var currentRotY = 0, currentRotX = 0;
   var maxRotX = 0.9;
-  var hintDismissed = false;
-
-  function dismissHint() {
-    if (hintDismissed) return;
-    hintDismissed = true;
-    dragHint.classList.add('is-hidden');
-  }
-
   container.addEventListener('pointerdown', function (e) {
     isDragging = true;
     dragVelX = 0; dragVelY = 0;
     lastX = e.clientX; lastY = e.clientY;
     container.classList.add('is-dragging');
     container.setPointerCapture(e.pointerId);
-    dismissHint();
   });
 
   container.addEventListener('pointermove', function (e) {

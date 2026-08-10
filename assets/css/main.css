@@ -97,9 +97,12 @@ textarea {
 
 .navbar {
   padding: 0.95rem 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-brand {
+  margin-right: auto;
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 1.35rem;
   font-weight: 700;
@@ -115,9 +118,17 @@ textarea {
 }
 
 .navbar-brand img {
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 3.75rem;
+  height: 3.75rem;
   object-fit: contain;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  border: none;
+  padding: 0;
+  mix-blend-mode: darken;
+  opacity: 1;
+  filter: none;
 }
 
 .brand-icon {
@@ -339,6 +350,56 @@ textarea {
   color: #000000;
 }
 
+.research-philosophy-title {
+  color: #000000;
+  font-weight: 700;
+}
+
+.research-philosophy-title + ul strong {
+  color: #5a189a;
+}
+
+.scientific-excellence-label {
+  color: #5a189a !important;
+}
+
+.about-principle-title {
+  color: var(--color-secondary);
+}
+
+.about-page {
+  position: relative;
+  background-image: linear-gradient(rgba(249, 251, 253, 0.48), rgba(237, 242, 247, 0.58)), url('../images/geo-satellite.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+}
+
+.about-page > .container > .row:first-child > .col-lg-7 > .lead {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.about-page > .container > .row:first-child h1 {
+  color: #000000;
+}
+
+.about-page .card p,
+.about-page .card li {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.about-page .card h3,
+.about-page .card h4 {
+  color: #5a189a !important;
+  font-weight: 700;
+}
+
+.about-page .card .research-philosophy-title {
+  color: #000000 !important;
+}
+
 .btn-primary-custom {
   display: inline-flex;
   align-items: center;
@@ -517,6 +578,34 @@ textarea {
   box-shadow: 0 18px 42px rgba(23, 34, 42, 0.12) !important;
 }
 
+.research-philosophy-card,
+.about-principle-card,
+.about-detail-card,
+.research-domain-card {
+  background: linear-gradient(135deg, rgba(51, 102, 224, 0.45) 0%, rgba(31, 127, 78, 0.45) 100%);
+}
+
+.research-domain-card h3 {
+  color: var(--color-secondary);
+}
+
+.geoai-domain-title,
+.blue-domain-title {
+  color: #3366e0 !important;
+}
+
+.research-domain-card p {
+  color: #ffffff !important;
+}
+
+.research-page {
+  position: relative;
+  background-image: linear-gradient(rgba(249, 251, 253, 0.72), rgba(237, 242, 247, 0.78)), url('../images/World_environment_day_GDSG_Post.jpg');
+  background-size: 185% auto;
+  background-position: 78% 52%;
+  background-attachment: fixed;
+}
+
 .info-card {
   padding: 1.6rem;
   height: 100%;
@@ -554,6 +643,7 @@ textarea {
 
 .project-card {
   overflow: hidden;
+  background: linear-gradient(135deg, rgba(51, 102, 224, 0.45) 0%, rgba(31, 127, 78, 0.45) 100%);
 }
 
 .project-card__media {
@@ -579,18 +669,235 @@ textarea {
   background: linear-gradient(135deg, rgba(247,182,182,1) 0%, rgba(200,215,231,0.7) 50%, rgba(31,127,78,0.25) 100%);
 }
 
+.projects-intro {
+  border-bottom: 1px solid var(--color-outline);
+  padding-bottom: 1.5rem;
+}
+
+.projects-intro .section-kicker {
+  color: #000000;
+}
+
+.projects-intro h1 {
+  color: #7c2d12;
+}
+
+.projects-intro p {
+  color: #ffffff !important;
+}
+
+.projects-page {
+  position: relative;
+  background-image: linear-gradient(rgba(18, 38, 58, 0.46), rgba(20, 75, 72, 0.54)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2200&q=85');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.project-detail-page {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #0d2330;
+}
+
+.project-detail-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.38);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.project-detail-page .container {
+  position: relative;
+  z-index: 1;
+}
+
+.project-detail-page--smog {
+  background-image: linear-gradient(180deg, rgba(245, 251, 255, 0.92), rgba(226, 238, 251, 0.82)), url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23cde7ff'/%3E%3Cstop offset='100%25' stop-color='%2392c5f3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23a)'/%3E%3Ccircle cx='560' cy='140' r='90' fill='rgba(255,255,255,0.35)'/%3E%3Ccircle cx='240' cy='360' r='70' fill='rgba(255,255,255,0.2)'/%3E%3Crect x='80' y='440' width='560' height='120' rx='24' fill='rgba(255,255,255,0.1)'/%3E%3Cline x1='120' y1='480' x2='680' y2='480' stroke='%23ffffff' stroke-opacity='0.45' stroke-width='2'/%3E%3Ccircle cx='180' cy='350' r='8' fill='%23ffffff'/%3E%3Ccircle cx='620' cy='200' r='10' fill='%23ffffff'/%3E%3Cline x1='180' y1='350' x2='620' y2='200' stroke='%23ffffff' stroke-opacity='0.3' stroke-width='1'/%3E%3Ccircle cx='420' cy='120' r='6' fill='%23ffffff'/%3E%3Ccircle cx='480' cy='420' r='12' fill='%23ffffff'/%3E%3Cpath d='M220 120 l90 50 a120 120 0 0 1 80 30' fill='none' stroke='%23ffffff' stroke-opacity='0.25' stroke-width='2'/%3E%3Cpath d='M420 320 l120 -80 a50 50 0 0 0 30 -20' fill='none' stroke='%23ffffff' stroke-opacity='0.18' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  color: var(--color-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.projects-intro__note {
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--color-secondary);
+  background: rgba(213, 47, 47, 0.08);
+  color: #000000;
+}
+
+.projects-intro__note strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: #ffffff;
+}
+
+.project-card__media--smog {
+  background: linear-gradient(135deg, #17354a 0%, #2f7180 52%, #d98b4d 100%);
+}
+
+.project-card__media--hummuqaam {
+  background: linear-gradient(135deg, #223c6b 0%, #3c76a8 50%, #58a782 100%);
+}
+
+.project-card__media--crops {
+  background: linear-gradient(135deg, #1f604c 0%, #70a967 52%, #d7b55d 100%);
+}
+
+.project-visual__label,
+.project-visual__metric {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-visual__label {
+  top: 1.1rem;
+  left: 1.2rem;
+}
+
+.project-visual__metric {
+  right: 1.2rem;
+  bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.project-visual__metric strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.project-card__subhead {
+  margin: 1.25rem 0 0.6rem;
+  color: var(--color-on-surface);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-list {
+  padding-left: 1.1rem;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+.project-list li + li {
+  margin-top: 0.45rem;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-tech-button {
+  appearance: none;
+  border: 1px solid var(--color-secondary);
+  border-radius: 999px;
+  padding: 0.3rem 0.55rem;
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--color-secondary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-tech-button:hover,
+.project-tech-button:focus-visible,
+.project-tech-button.is-active {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+  color: #ffffff;
+}
+
+.project-tech-detail {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(51, 102, 224, 0.08);
+  color: #ffffff;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.projects-portfolio-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2.6rem 2.8rem;
+  border: 1px solid rgba(115, 174, 192, 0.7);
+  position: relative;
+  background: #dff2f7;
+  box-shadow: none;
+}
+
+.projects-portfolio-note::before {
+  content: 'SIG // DIGEST';
+  position: absolute;
+  top: -0.6rem;
+  left: 2rem;
+  padding: 0 0.6rem;
+  background: var(--color-on-surface);
+  color: var(--color-secondary);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+}
+
+.projects-portfolio-note h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.9rem;
+  margin-bottom: 0;
+  color: #123846;
+}
+
+.projects-portfolio-note p {
+  margin: 0;
+  color: #365763;
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .projects-portfolio-note {
+    gap: 1rem;
+    padding: 2rem 1.4rem 1.4rem;
+  }
+}
+
 .project-card__body {
   padding: 1.25rem 1.3rem 1.4rem;
 }
 
 .project-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
+  display: inline-block;
+  padding: 0;
+  border-radius: 0;
   margin-bottom: 0.8rem;
-  background: var(--color-secondary);
-  color: var(--color-on-primary);
+  background: transparent;
+  color: var(--color-secondary);
+  font-weight: 800;
+  text-decoration: underline;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -601,12 +908,17 @@ textarea {
   background: var(--color-secondary);
 }
 
+.project-card h2,
 .project-card h3 {
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: #000000;
   margin-bottom: 0.5rem;
+}
+
+.project-card__body p {
+  color: #ffffff !important;
 }
 
 .project-card a {
