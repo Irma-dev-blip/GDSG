@@ -331,23 +331,23 @@ require __DIR__ . '/includes/header.php';
       <div class="row g-4 stagger">
         <div class="col-lg-4">
           <article class="gdo-panel">
-            <span class="gdo-panel__signal">Signal // Spatial-ML</span>
-            <h3 class="geoai-domain-title">GeoAI</h3>
-            <p>Developing advanced machine learning architectures specialized for spatial datasets, topological neural networks, and generative modeling of geographic phenomena.</p>
+            <span class="gdo-panel__signal">Signal // GeoAI Forecasting</span>
+            <h3 class="geoai-domain-title">GeoAI &amp; Predictive Modeling</h3>
+            <p>Building machine-learning workflows for AQI forecasting, pollution-source attribution, and spatiotemporal risk prediction using environmental and geospatial data.</p>
           </article>
         </div>
         <div class="col-lg-4">
           <article class="gdo-panel">
-            <span class="gdo-panel__signal">Signal // EO-Sensing</span>
-            <h3 class="blue-domain-title">Earth Observation</h3>
-            <p>Processing multi-spectral satellite imagery and LiDAR data to monitor environmental change, track deforestation, and quantify urban sprawl dynamics.</p>
+            <span class="gdo-panel__signal">Signal // EO Monitoring</span>
+            <h3 class="blue-domain-title">Earth Observation &amp; Remote Sensing</h3>
+            <p>Integrating satellite, aerial, and sensor data to monitor land-use change, environmental stress, and climate-sensitive conditions across regions.</p>
           </article>
         </div>
         <div class="col-lg-4">
           <article class="gdo-panel">
-            <span class="gdo-panel__signal">Signal // Geostatistics</span>
-            <h3 class="blue-domain-title">Spatial Analytics</h3>
-            <p>Leveraging geospatial statistics to model climate risk, urban systems, and environmental resilience with rigorous scientific methods.</p>
+            <span class="gdo-panel__signal">Signal // Spatial Infrastructure</span>
+            <h3 class="blue-domain-title">Spatial Analytics &amp; Location Intelligence</h3>
+            <p>Developing geospatial pipelines for addressing, administrative hierarchy, and multi-scale analysis to support planning, service delivery, and evidence-based decisions.</p>
           </article>
         </div>
       </div>
@@ -368,7 +368,7 @@ require __DIR__ . '/includes/header.php';
         <div class="col-md-6 col-lg-4">
           <article class="gdo-report">
             <div class="gdo-report__media-wrap">
-              <img src="assets/images/Agriculture_area_under_flood_GDSG_map.jpg" alt="Punjab air quality forecast map" class="gdo-report__media">
+              <img src="Project_images/smog_image.jpg" alt="Punjab air quality forecast map" class="gdo-report__media">
               <div class="gdo-report__scanline"></div>
             </div>
             <div class="gdo-report__body">
@@ -381,7 +381,7 @@ require __DIR__ . '/includes/header.php';
         <div class="col-md-6 col-lg-4">
           <article class="gdo-report">
             <div class="gdo-report__media-wrap">
-              <img src="assets/images/Forest_fire_Severity_Murree_Kotli_Map.jpg" alt="Location intelligence map" class="gdo-report__media">
+              <img src="Project_images/HumMuqam_image.jpg" alt="Location intelligence map" class="gdo-report__media">
               <div class="gdo-report__scanline"></div>
             </div>
             <div class="gdo-report__body">
@@ -394,7 +394,7 @@ require __DIR__ . '/includes/header.php';
         <div class="col-md-6 col-lg-4">
           <article class="gdo-report">
             <div class="gdo-report__media-wrap">
-              <img src="assets/images/geo-satellite.jpg" alt="Crop knowledge platform" class="gdo-report__media">
+              <img src="Project_images/crop_library_image.jpg" alt="Crop library image" class="gdo-report__media">
               <div class="gdo-report__scanline"></div>
             </div>
             <div class="gdo-report__body">

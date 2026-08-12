@@ -8,7 +8,7 @@ require __DIR__ . '/includes/header.php';
         <div class="projects-intro row align-items-end gy-4">
             <div class="col-lg-8">
                 <span class="section-kicker">Ongoing research portfolio</span>
-                <h1 class="display-6 fw-bold">Projects by Miss Reeha &amp; Sir Irteza</h1>
+                <h1 class="display-6 fw-bold">Projects by GDSD</h1>
                 <p class="lead text-muted mb-0">Three active platforms turning environmental, geospatial, and agricultural data into practical intelligence for Pakistan.</p>
             </div>
             <div class="col-lg-4">
@@ -18,7 +18,7 @@ require __DIR__ . '/includes/header.php';
         <div class="row g-4 mt-5 stagger">
             <div class="col-md-6 col-xl-4">
                 <article class="card project-card project-card--smog h-100 tilt-card">
-                    <div class="project-card__media project-card__media--smog" aria-hidden="true"><span class="project-visual__label">Punjab / AQI intelligence</span><span class="project-visual__metric">AQI <strong>FORECAST</strong></span></div>
+                    <a href="Project_images/smog_image.jpg" target="_blank" class="project-card__media project-card__media--smog" aria-label="Open Smog image"><span class="project-visual__label">Punjab / AQI intelligence</span><span class="project-visual__metric">AQI <strong>FORECAST</strong></span></a>
                     <div class="project-card__body">
                         <span class="project-pill">Ongoing</span>
                         <h2>Smog Monitoring &amp; AQI Forecasting System</h2>
@@ -41,7 +41,7 @@ require __DIR__ . '/includes/header.php';
             </div>
             <div class="col-md-6 col-xl-4">
                 <article class="card project-card project-card--hummuqaam h-100 tilt-card">
-                    <div class="project-card__media project-card__media--hummuqaam" aria-hidden="true"><span class="project-visual__label">Pakistan / location intelligence</span><span class="project-visual__metric">L0 <strong>&rarr;</strong> L6</span></div>
+                    <a href="Project_images/HumMuqam_image.jpg" target="_blank" class="project-card__media project-card__media--hummuqaam" aria-label="Open HumMuqaam image"><span class="project-visual__label">Pakistan / location intelligence</span><span class="project-visual__metric">L0 <strong>&rarr;</strong> L6</span></a>
                     <div class="project-card__body">
                         <span class="project-pill">Ongoing</span>
                         <h2>HumMuqaam &ndash; Intelligent Geospatial Addressing System</h2>
@@ -64,7 +64,7 @@ require __DIR__ . '/includes/header.php';
             </div>
             <div class="col-md-6 col-xl-4">
                 <article class="card project-card project-card--crops h-100 tilt-card">
-                    <div class="project-card__media project-card__media--crops" aria-hidden="true"><span class="project-visual__label">Agriculture / knowledge base</span><span class="project-visual__metric">CROP <strong>LIBRARY</strong></span></div>
+                    <a href="Project_images/crop_library_image.jpg" target="_blank" class="project-card__media project-card__media--crops" aria-label="Open Crop Library image"><span class="project-visual__label">Agriculture / knowledge base</span><span class="project-visual__metric">CROP <strong>LIBRARY</strong></span></a>
                     <div class="project-card__body">
                         <span class="project-pill">Ongoing</span>
                         <h2>Crop Library</h2>

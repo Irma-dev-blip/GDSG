@@ -488,6 +488,55 @@ textarea {
   padding-top: 1rem;
 }
 
+.contact-hero {
+  position: relative;
+  background-image: linear-gradient(rgba(7, 43, 72, 0.48), rgba(12, 68, 81, 0.48)), url('../images/geo-satellite-clean.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+.contact-hero .card {
+  background: rgba(89, 143, 166, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.contact-hero .card a {
+  color: #4db8ff;
+  font-weight: 700;
+}
+
+.contact-hero .card a:hover,
+.contact-hero .card a:focus {
+  color: #ffffff;
+}
+
+.contact-hero .card p:last-child,
+.contact-hero .card p.text-muted:last-child {
+  color: #4db8ff !important;
+  font-weight: 600;
+}
+
+.contact-hero h1 {
+  color: #ffd966;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.contact-hero .lead,
+.contact-hero h5 {
+  color: #ffffff;
+}
+
+.contact-hero h5 {
+  color: #ffd966;
+}
+
+.contact-hero .lead {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
 .section-heading {
   margin-bottom: 1.6rem;
 }
@@ -649,10 +698,12 @@ textarea {
 .project-card__media {
   display: block;
   width: 100%;
-  height: 14rem;
+  height: 18rem;
   object-fit: cover;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
+  border-top-left-radius: 1.1rem;
+  border-top-right-radius: 1.1rem;
   transition: transform 0.45s ease, filter 0.45s ease;
 }
 
@@ -699,6 +750,7 @@ textarea {
   background-size: cover;
   background-position: center;
   color: #0d2330;
+  min-height: 70vh;
 }
 
 .project-detail-page::before {
@@ -716,7 +768,142 @@ textarea {
 }
 
 .project-detail-page--smog {
-  background-image: linear-gradient(180deg, rgba(245, 251, 255, 0.92), rgba(226, 238, 251, 0.82)), url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23cde7ff'/%3E%3Cstop offset='100%25' stop-color='%2392c5f3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23a)'/%3E%3Ccircle cx='560' cy='140' r='90' fill='rgba(255,255,255,0.35)'/%3E%3Ccircle cx='240' cy='360' r='70' fill='rgba(255,255,255,0.2)'/%3E%3Crect x='80' y='440' width='560' height='120' rx='24' fill='rgba(255,255,255,0.1)'/%3E%3Cline x1='120' y1='480' x2='680' y2='480' stroke='%23ffffff' stroke-opacity='0.45' stroke-width='2'/%3E%3Ccircle cx='180' cy='350' r='8' fill='%23ffffff'/%3E%3Ccircle cx='620' cy='200' r='10' fill='%23ffffff'/%3E%3Cline x1='180' y1='350' x2='620' y2='200' stroke='%23ffffff' stroke-opacity='0.3' stroke-width='1'/%3E%3Ccircle cx='420' cy='120' r='6' fill='%23ffffff'/%3E%3Ccircle cx='480' cy='420' r='12' fill='%23ffffff'/%3E%3Cpath d='M220 120 l90 50 a120 120 0 0 1 80 30' fill='none' stroke='%23ffffff' stroke-opacity='0.25' stroke-width='2'/%3E%3Cpath d='M420 320 l120 -80 a50 50 0 0 0 30 -20' fill='none' stroke='%23ffffff' stroke-opacity='0.18' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-image: linear-gradient(135deg, rgba(7, 38, 70, 0.82) 0%, rgba(17, 72, 118, 0.74) 48%, rgba(34, 98, 155, 0.66) 100%), url('../../satellite_images/satellite_1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply, normal;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.project-detail-page--hummuqaam {
+  background-image: linear-gradient(135deg, rgba(30, 48, 50, 0.82) 0%, rgba(53, 99, 76, 0.72) 48%, rgba(115, 176, 118, 0.64) 100%), url('../../satellite_images/satellite_2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply, normal;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.project-detail-page--hummuqaam .display-6,
+.project-detail-page--hummuqaam h1 {
+  color: #f3d86f;
+}
+
+.project-detail-page--hummuqaam .lead {
+  color: #d9eed6 !important;
+}
+
+.project-detail-page--hummuqaam .about-detail-card {
+  background: linear-gradient(135deg, rgba(8, 55, 22, 0.96) 0%, rgba(14, 76, 30, 0.95) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.project-detail-page--hummuqaam .about-detail-card h5,
+.project-detail-page--hummuqaam .about-detail-card h4,
+.project-detail-page--hummuqaam .about-detail-card h3 {
+  color: #f3d86f !important;
+}
+
+.project-detail-page--hummuqaam .col-lg-4 .card {
+  background: rgba(8, 47, 24, 0.94);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.project-detail-page--hummuqaam .col-lg-4 .card h5 {
+  color: #facc15 !important;
+}
+
+.project-detail-page--hummuqaam .col-lg-4 .card p,
+.project-detail-page--hummuqaam .col-lg-4 .card dd {
+  color: #ffffff !important;
+}
+
+.project-detail-page--hummuqaam .col-lg-4 .card dt {
+  color: #dc2626 !important;
+}
+
+.project-detail-page--crop-library {
+  background-image: linear-gradient(135deg, rgba(50, 38, 14, 0.82) 0%, rgba(110, 78, 30, 0.74) 46%, rgba(184, 125, 59, 0.68) 100%), url('../../satellite_images/satellite_3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply, normal;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.project-detail-page--crop-library .display-6,
+.project-detail-page--crop-library h1 {
+  color: #f3d86f;
+}
+
+.project-detail-page--crop-library .lead {
+  color: #ffffff !important;
+}
+
+.project-detail-page--crop-library .about-detail-card h5,
+.project-detail-page--crop-library .about-detail-card h4,
+.project-detail-page--crop-library .about-detail-card h3 {
+  color: #f3d86f !important;
+}
+
+.project-detail-page .card,
+.project-detail-page .card-soft {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(192, 201, 193, 0.35);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.project-detail-page .about-detail-card {
+  background: linear-gradient(135deg, rgba(10, 45, 63, 0.92) 0%, rgba(28, 111, 163, 0.92) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+}
+
+.project-detail-page .about-detail-card h5,
+.project-detail-page .about-detail-card h4,
+.project-detail-page .about-detail-card h3 {
+  color: #facc15 !important;
+}
+
+.project-detail-page .about-detail-card dt {
+  color: #7dd3fc !important;
+}
+
+.project-detail-page .about-detail-card dd,
+.project-detail-page .about-detail-card p,
+.project-detail-page .about-detail-card ul,
+.project-detail-page .about-detail-card li {
+  color: #ffffff !important;
+}
+
+/* Make Smog project title match the background better */
+.project-detail-page--smog .display-6,
+.project-detail-page--smog h1 {
+  color: #f3d86f;
+}
+
+.project-detail-page--smog .lead {
+  color: #ffffff !important;
+}
+
+/* Make Project Metadata heading green */
+.project-detail-page .card h5 {
+  color: #28a745;
+}
+
+.project-detail-page .card dl dt {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
+
+.project-detail-page .card dl dd {
+  color: #0f2e1a;
+}
+
+.project-detail-page--smog .card {
+  background: rgba(255,255,255,0.9);
+}
+
+.project-detail-page--smog .about-detail-card {
+  background: linear-gradient(135deg, rgba(10, 45, 63, 0.92) 0%, rgba(28, 111, 163, 0.92) 100%) !important;
 }
 
 .section-kicker {
@@ -743,15 +930,21 @@ textarea {
 }
 
 .project-card__media--smog {
-  background: linear-gradient(135deg, #17354a 0%, #2f7180 52%, #d98b4d 100%);
+  background: linear-gradient(135deg, rgba(23, 53, 74, 0.24) 0%, rgba(47, 113, 128, 0.18) 52%, rgba(217, 139, 77, 0.12) 100%), url('../../Project_images/smog_image.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .project-card__media--hummuqaam {
-  background: linear-gradient(135deg, #223c6b 0%, #3c76a8 50%, #58a782 100%);
+  background: linear-gradient(135deg, rgba(34, 60, 107, 0.24) 0%, rgba(60, 118, 168, 0.18) 50%, rgba(88, 167, 130, 0.12) 100%), url('../../Project_images/HumMuqam_image.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .project-card__media--crops {
-  background: linear-gradient(135deg, #1f604c 0%, #70a967 52%, #d7b55d 100%);
+  background: linear-gradient(135deg, rgba(31, 96, 76, 0.24) 0%, rgba(112, 169, 103, 0.18) 52%, rgba(215, 181, 93, 0.12) 100%), url('../../Project_images/crop_library_image.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .project-visual__label,
@@ -921,10 +1114,14 @@ textarea {
   color: #ffffff !important;
 }
 
-.project-card a {
+.project-card__body a {
   display: inline-flex;
   margin-top: 0.9rem;
   font-weight: 600;
+}
+
+.project-card__media {
+  margin-top: 0;
 }
 
 .newsletter-card {

@@ -19,9 +19,9 @@ $projects = [
         'metadata' => [
             'Status' => 'Ongoing',
             'Domain' => 'Earth Observation, GeoAI',
-            'Team' => 'Miss Reeha + 6 researchers',
+            'Team' => 'GDSD',
         ],
-        'pis' => ['Miss Reeha', 'Sir Irteza'],
+        'pis' => ['GDSD'],
     ],
     'hummuqaam' => [
         'title' => 'HumMuqaam – Intelligent Geospatial Addressing System',
@@ -40,9 +40,9 @@ $projects = [
         'metadata' => [
             'Status' => 'Ongoing',
             'Domain' => 'Spatial Analytics, GeoAI',
-            'Team' => 'Miss Reeha + 5 researchers',
+            'Team' => 'GDSD',
         ],
-        'pis' => ['Miss Reeha', 'Sir Irteza'],
+        'pis' => ['GDSD'],
     ],
     'crop-library' => [
         'title' => 'Crop Library',
@@ -87,13 +87,13 @@ function e($value)
             <div class="col-lg-8">
                 <h1 class="display-6 fw-bold"><?php echo e($project['title']); ?></h1>
                 <p class="lead text-muted"><?php echo e($project['lead']); ?></p>
-                <div class="card p-4 card-soft mb-4 reveal">
+                <div class="card p-4 card-soft mb-4 reveal about-detail-card">
                     <h3 class="h5">Project Overview</h3>
                     <p class="text-muted"><?php echo e($project['overview']); ?></p>
                 </div>
                 <div class="row g-4 stagger">
                     <div class="col-md-6">
-                        <div class="card p-4 card-soft tilt-card">
+                        <div class="card p-4 card-soft tilt-card about-detail-card">
                             <h4>Objectives</h4>
                             <ul class="text-muted">
                                 <?php foreach ($project['objectives'] as $objective): ?>
@@ -103,13 +103,13 @@ function e($value)
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card p-4 card-soft tilt-card">
+                        <div class="card p-4 card-soft tilt-card about-detail-card">
                             <h4>Technologies</h4>
                             <p class="text-muted"><?php echo e($project['technologies']); ?></p>
                         </div>
                     </div>
                 </div>
-                <div class="card p-4 card-soft mt-4 reveal">
+                <div class="card p-4 card-soft mt-4 reveal about-detail-card">
                     <h4>Related Publications</h4>
                     <ul class="list-unstyled mb-0 text-muted">
                         <?php foreach ($project['publications'] as $publication): ?>
@@ -119,7 +119,7 @@ function e($value)
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card p-4 card-soft mb-4">
+                <div class="card p-4 card-soft mb-4 about-detail-card">
                     <h5>Project Metadata</h5>
                     <dl class="row">
                         <?php foreach ($project['metadata'] as $label => $value): ?>
@@ -128,7 +128,7 @@ function e($value)
                         <?php endforeach; ?>
                     </dl>
                 </div>
-                <div class="card p-4 card-soft">
+                <div class="card p-4 card-soft about-detail-card">
                     <h5>Principal Investigators</h5>
                     <?php foreach ($project['pis'] as $pi): ?>
                         <p class="text-muted mb-2"><?php echo e($pi); ?></p>

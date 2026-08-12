@@ -3,7 +3,7 @@ $pageTitle = 'Contact';
 require __DIR__ . '/includes/functions.php';
 require __DIR__ . '/includes/header.php';
 ?>
-<section class="py-5">
+<section class="contact-hero py-5">
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-6">

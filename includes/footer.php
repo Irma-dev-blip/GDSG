@@ -20,7 +20,6 @@
                 <ul class="list-unstyled">
                     <li><a href="team.php">Team</a></li>
                     <li><a href="news.php">News</a></li>
-                    <li><a href="gallery.php">Gallery</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
