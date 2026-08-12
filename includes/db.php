@@ -19,3 +19,5 @@ function db_connect()
         return null;
     }
 }
+
+$pdo = db_connect();

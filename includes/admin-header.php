@@ -15,6 +15,7 @@ $config = require __DIR__ . '/config.php';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaAOMy+6Yk4TeB9vNQxjzvJpYxTBEeyWmL/5A0OVEQr+M7FpKGT3wFQd4NX" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo asset_url('assets/css/main.css'); ?>">
+    <link rel="stylesheet" href="<?php echo asset_url('assets/css/admin-dashboard.css'); ?>">
     <title><?php echo get_page_title($pageTitle ?? 'Admin'); ?></title>
 </head>
 <body class="bg-light text-body">
@@ -42,7 +43,6 @@ $config = require __DIR__ . '/config.php';
                     <li class="nav-item"><a class="nav-link" href="research.php">Research Areas</a></li>
                     <li class="nav-item"><a class="nav-link" href="publications.php">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="team.php">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="news.php">News</a></li>
                     <li class="nav-item"><a class="nav-link" href="partners.php">Partners</a></li>
                     <li class="nav-item"><a class="nav-link" href="messages.php">Messages</a></li>
