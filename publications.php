@@ -1,7 +1,21 @@
 <?php
 $pageTitle = 'Publications';
 require __DIR__ . '/includes/functions.php';
+require __DIR__ . '/includes/db.php';
+require __DIR__ . '/includes/components.php';
 require __DIR__ . '/includes/header.php';
+
+$q = trim($_GET['q'] ?? '');
+$year = trim($_GET['year'] ?? '');
+
+// fetch available years for the filter dropdown
+$availableYears = [];
+if ($pdo) {
+    try {
+        $yrs = $pdo->query('SELECT DISTINCT year FROM publications WHERE year IS NOT NULL ORDER BY year DESC')->fetchAll(PDO::FETCH_COLUMN);
+        if ($yrs) $availableYears = $yrs;
+    } catch (Exception $e) { /* ignore */ }
+}
 ?>
 <section class="py-5">
     <div class="container">
@@ -15,34 +29,49 @@ require __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div class="card card-soft p-4 mt-4 reveal">
+            <form method="get" action="publications.php">
             <div class="row g-3">
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Search publications...">
+                    <input name="q" type="text" class="form-control" placeholder="Search publications..." value="<?php echo htmlspecialchars($q); ?>">
                 </div>
                 <div class="col-md-2">
-                    <select class="form-select">
-                        <option selected>All Years</option>
-                        <option>2024</option>
-                        <option>2023</option>
+                    <select name="year" class="form-select">
+                        <option value="">All Years</option>
+                        <?php foreach ($availableYears as $y): ?>
+                            <option value="<?php echo htmlspecialchars($y); ?>" <?php echo ($year == $y) ? 'selected' : ''; ?>><?php echo htmlspecialchars($y); ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <select class="form-select">
-                        <option selected>All Categories</option>
-                        <option>GeoAI</option>
-                        <option>Earth Observation</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-select">
-                        <option selected>Type</option>
-                        <option>Journal</option>
-                        <option>Conference</option>
-                    </select>
+                    <button type="submit" class="btn btn-primary">Filter</button>
                 </div>
             </div>
+            </form>
         </div>
         <div id="publication-list" class="row g-4 mt-4 stagger">
+            <?php
+            // Render DB-driven publications first (if any), then fall back to static seeded cards.
+            $pubs = get_publications_filtered($pdo, 12, $q ?: null, $year ?: null);
+            if (!empty($pubs)) {
+                foreach ($pubs as $p) {
+                    ?>
+                    <div class="col-md-6 col-xl-4">
+                        <article class="card card-soft image-card h-100 tilt-card">
+                            <div class="image-card__body d-flex flex-column">
+                                <span class="text-muted"><?php echo htmlspecialchars($p['journal'] ?: 'Publication'); ?></span>
+                                <h3 class="h5 mt-2"><?php echo htmlspecialchars($p['title']); ?></h3>
+                                <p class="text-muted"><?php echo htmlspecialchars($p['authors']); ?> — <?php echo htmlspecialchars($p['year']); ?></p>
+                                <p class="text-muted"><?php echo htmlspecialchars(mb_substr($p['summary'],0,160)); ?></p>
+                                <a href="publication_detail.php?id=<?php echo (int)$p['id']; ?>" class="btn btn-outline-secondary btn-sm align-self-start mt-auto">View publication</a>
+                            </div>
+                        </article>
+                    </div>
+                    <?php
+                }
+            }
+
+            ?>
+
             <div class="col-md-6 col-xl-4">
                 <article class="card card-soft image-card h-100 tilt-card">
                     <img src="assets/images/journal_of_agriculture_policy_and_transformation.jpg" alt="Journal cover for agriculture policy and transformation" class="image-card__media publication-card__media">

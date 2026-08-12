@@ -15,8 +15,8 @@ return [
     'db' => [
         'host' => 'localhost',
         'name' => 'gdsg',
-        'user' => 'gdsg_user',
-        'pass' => 'gdsg_pass',
+        'user' => 'root',
+        'pass' => 'root',
         'charset' => 'utf8mb4',
     ],
 ];

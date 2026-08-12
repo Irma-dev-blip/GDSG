@@ -10,7 +10,7 @@ require __DIR__ . '/../includes/admin-header.php';
                 <h1 class="display-6 fw-bold">Gallery</h1>
                 <p class="text-muted">Upload and manage gallery images for the public site.</p>
             </div>
-            <a href="#" class="btn btn-primary">Add Image</a>
+            <a href="gallery.php?action=add" class="btn btn-add">Add Image</a>
         </div>
         <div class="table-responsive card card-soft p-4">
             <table class="table align-middle mb-0">

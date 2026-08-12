@@ -1,6 +1,8 @@
 <?php
 $pageTitle = 'Research';
 require __DIR__ . '/includes/functions.php';
+require __DIR__ . '/includes/db.php';
+require __DIR__ . '/includes/components.php';
 require __DIR__ . '/includes/header.php';
 ?>
 <section class="research-page py-5">
@@ -12,6 +14,24 @@ require __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div class="row g-4 mt-4 stagger">
+            <?php
+            $areas = get_research_areas($pdo, 12);
+            if (!empty($areas)) {
+                foreach ($areas as $a) {
+                    ?>
+                    <div class="col-lg-6">
+                        <article class="card research-domain-card p-4 card-soft h-100 feature-card tilt-card">
+                            <h3><?php echo htmlspecialchars($a['title']); ?></h3>
+                            <p class="text-muted"><?php echo htmlspecialchars(mb_substr($a['summary'] ?? $a['content'], 0, 300)); ?></p>
+                            <a href="research_detail.php?id=<?php echo (int)$a['id']; ?>" class="btn btn-outline-secondary btn-sm mt-3">Read more</a>
+                        </article>
+                    </div>
+                    <?php
+                }
+            }
+
+            // static fallback cards remain below so seeded content still shows
+            ?>
             <div class="col-lg-6">
                 <div class="card research-domain-card environmental-intelligence-card p-4 card-soft h-100 feature-card tilt-card">
                     <h3 class="environmental-intelligence-title">Environmental Intelligence &amp; Air Quality</h3>

@@ -1,6 +1,9 @@
 <?php
 $pageTitle = 'Projects';
 require __DIR__ . '/includes/functions.php';
+require __DIR__ . '/includes/db.php';
+require __DIR__ . '/includes/components.php';
+require __DIR__ . '/includes/project_model.php';
 require __DIR__ . '/includes/header.php';
 ?>
 <section class="projects-page py-5">
@@ -16,6 +19,49 @@ require __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div class="row g-4 mt-5 stagger">
+            <?php
+            $projects = get_projects($pdo, 12);
+            if (!empty($projects)) {
+                foreach ($projects as $proj) {
+                    $slugClass = preg_replace('/[^a-z0-9\-]/', '', strtolower($proj['slug'] ?? 'project'));
+                    $visualLabel = htmlspecialchars($proj['research_area_id'] ? 'Project' : 'Project');
+                    $metric = htmlspecialchars(ucfirst($proj['status'] ?? 'ongoing'));
+                    $techs = array_filter(array_map('trim', explode(',', $proj['technologies'] ?? '')));
+                    ?>
+                    <?php
+                    $images = get_project_images($proj['id']);
+                    $firstImage = !empty($images) ? asset_url($images[0]['image_url']) : null;
+                    $bgStyle = $firstImage ? ('style="background-image: url(' . htmlspecialchars($firstImage) . '); background-size: cover; background-position: center;"') : '';
+                    ?>
+                    <div class="col-md-6 col-xl-4">
+                        <article class="card project-card project-card--<?php echo $slugClass; ?> h-100 tilt-card">
+                            <a href="project_detail.php?id=<?php echo (int)$proj['id']; ?>" class="project-card__media project-card__media--<?php echo $slugClass; ?>" aria-label="Open project detail" <?php echo $bgStyle; ?>>
+                                <span class="project-visual__label"><?php echo $visualLabel; ?></span>
+                                <span class="project-visual__metric"><?php echo $metric; ?></span>
+                            </a>
+                            <div class="project-card__body">
+                                <span class="project-pill"><?php echo htmlspecialchars(ucfirst($proj['status'] ?? 'ongoing')); ?></span>
+                                <h2><?php echo htmlspecialchars($proj['title']); ?></h2>
+                                <p class="text-muted"><?php echo htmlspecialchars(mb_substr($proj['summary'] ?? $proj['objectives'] ?? '', 0, 200)); ?></p>
+                                <?php if (!empty($techs)): ?>
+                                    <h3 class="project-card__subhead">Core capabilities</h3>
+                                    <div class="project-tech-list" role="group" aria-label="Project technologies">
+                                        <?php foreach ($techs as $t): ?>
+                                            <button type="button" class="project-tech-button" data-info="<?php echo htmlspecialchars($t); ?>"><?php echo htmlspecialchars($t); ?></button>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="mt-3">
+                                    <a href="project_detail.php?id=<?php echo (int)$proj['id']; ?>" class="btn btn-outline-secondary btn-sm align-self-start mt-auto">View project</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+
             <div class="col-md-6 col-xl-4">
                 <article class="card project-card project-card--smog h-100 tilt-card">
                     <a href="Project_images/smog_image.jpg" target="_blank" class="project-card__media project-card__media--smog" aria-label="Open Smog image"><span class="project-visual__label">Punjab / AQI intelligence</span><span class="project-visual__metric">AQI <strong>FORECAST</strong></span></a>

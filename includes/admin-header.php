@@ -16,12 +16,29 @@ $config = require __DIR__ . '/config.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaAOMy+6Yk4TeB9vNQxjzvJpYxTBEeyWmL/5A0OVEQr+M7FpKGT3wFQd4NX" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo asset_url('assets/css/main.css'); ?>">
     <link rel="stylesheet" href="<?php echo asset_url('assets/css/admin-dashboard.css'); ?>">
+    <style>
+        /* Admin background image (responsive) */
+        .admin-layout {
+            background-image: url("<?php echo asset_url('assets/images/geo-satellite-clean.jpg'); ?>");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+        /* Slightly adjust position on small screens */
+        @media (max-width: 767px) {
+            .admin-layout { background-position: top center; }
+        }
+    </style>
     <title><?php echo get_page_title($pageTitle ?? 'Admin'); ?></title>
 </head>
 <body class="bg-light text-body">
 <header class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="index.php">GDSG Admin</a>
+        <div class="d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-sm btn-light d-md-none me-2" aria-label="Toggle sidebar">☰</button>
+            <a class="navbar-brand fw-bold" href="index.php">GDSG Admin</a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +49,7 @@ $config = require __DIR__ . '/config.php';
         </div>
     </div>
 </header>
-<div class="container-fluid">
+<div class="container-fluid admin-layout">
     <div class="row">
         <nav class="col-md-3 col-xl-2 d-none d-md-block bg-white admin-sidebar py-4">
             <div class="px-3">
