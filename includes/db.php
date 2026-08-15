@@ -128,6 +128,13 @@ function db_connect()
 }
 
 $pdo = db_connect();
+
+// Add detailed error logging
+if ($pdo === null) {
+    error_log('FATAL: db_connect() returned null - both MySQL and SQLite connections failed');
+    throw new Exception('Database connection failed - both MySQL and SQLite are unavailable');
+}
+
 // Attempt lightweight migrations: ensure `projects` has `featured_image` and `tags` columns
 try {
     $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);

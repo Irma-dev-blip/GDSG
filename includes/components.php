@@ -120,29 +120,6 @@ function get_news_item($pdo, $id) {
     }
 }
 
-function get_partners($pdo, $limit = 20) {
-    if (!$pdo) return [];
-    try {
-        $stmt = $pdo->prepare('SELECT id, name, website, logo_url, description, created_at FROM partners ORDER BY created_at DESC LIMIT :limit');
-        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (Exception $e) {
-        return [];
-    }
-}
-
-function get_partner($pdo, $id) {
-    if (!$pdo) return null;
-    try {
-        $stmt = $pdo->prepare('SELECT * FROM partners WHERE id = :id LIMIT 1');
-        $stmt->execute([':id'=>(int)$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
-    } catch (Exception $e) {
-        return null;
-    }
-}
-
 function get_publications($pdo, $limit = 12) {
     if (!$pdo) return [];
     try {

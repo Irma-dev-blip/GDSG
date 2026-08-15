@@ -7,7 +7,7 @@ require __DIR__ . '/../includes/admin-header.php';
     <div class="container">
         <div class="col-12">
             <h1 class="fw-bold">Admin Dashboard</h1>
-            <p class="dashboard-intro">Manage projects, research areas, publications, team members, news, and partners from one central location.</p>
+            <p class="dashboard-intro">Manage projects, research areas, publications, team members, and news from one central location.</p>
         </div>
 
         <div class="dashboard-grid">

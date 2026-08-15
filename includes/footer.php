@@ -10,7 +10,6 @@
                 <h6>Explore</h6>
                 <ul class="list-unstyled">
                     <li><a href="about.php">About</a></li>
-                    <li><a href="partners.php">Partners</a></li>
                     <li><a href="research.php">Research</a></li>
                     <li><a href="projects.php">Projects</a></li>
                     <li><a href="publications.php">Publications</a></li>

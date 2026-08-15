@@ -2,7 +2,7 @@
 $currentPath = basename($_SERVER['SCRIPT_NAME']);
 ?>
 <header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent container py-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent container-fluid py-3">
         <a class="navbar-brand" href="index.php" aria-label="Go to GDSG homepage" title="GDSG homepage">
             <img src="<?php echo asset_url('logo.jpeg'); ?>" alt="GDSG logo">
         </a>
@@ -16,7 +16,6 @@ $currentPath = basename($_SERVER['SCRIPT_NAME']);
                 <li class="nav-item"><a class="nav-link<?php echo $currentPath === 'research.php' ? ' active' : ''; ?>" href="research.php">Research</a></li>
                 <li class="nav-item"><a class="nav-link<?php echo $currentPath === 'projects.php' ? ' active' : ''; ?>" href="projects.php">Projects</a></li>
                 <li class="nav-item"><a class="nav-link<?php echo $currentPath === 'publications.php' ? ' active' : ''; ?>" href="publications.php">Publications</a></li>
-                <li class="nav-item"><a class="nav-link<?php echo ($currentPath === 'partners.php' || $currentPath === 'partner_detail.php') ? ' active' : ''; ?>" href="partners.php">Partners</a></li>
                 <li class="nav-item"><a class="nav-link<?php echo $currentPath === 'team.php' ? ' active' : ''; ?>" href="team.php">Team</a></li>
                 <li class="nav-item"><a class="nav-link<?php echo $currentPath === 'news.php' ? ' active' : ''; ?>" href="news.php">News</a></li>
             </ul>

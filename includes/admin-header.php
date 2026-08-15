@@ -61,7 +61,6 @@ $config = require __DIR__ . '/config.php';
                     <li class="nav-item"><a class="nav-link" href="publications.php">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="team.php">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="news.php">News</a></li>
-                    <li class="nav-item"><a class="nav-link" href="partners.php">Partners</a></li>
                     <li class="nav-item"><a class="nav-link" href="messages.php">Messages</a></li>
                     <li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>
                 </ul>
