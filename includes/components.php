@@ -154,7 +154,7 @@ function get_publication($pdo, $id) {
 function get_publications_filtered($pdo, $limit = 12, $q = null, $year = null) {
     if (!$pdo) return [];
     try {
-        $sql = 'SELECT id, title, authors, journal, year, summary, pdf_url, created_at FROM publications WHERE 1=1';
+        $sql = 'SELECT id, title, authors, journal, year, summary, pdf_url, featured_image, created_at FROM publications WHERE 1=1';
         $params = [];
         if (!empty($q)) {
             $sql .= ' AND (title LIKE :q OR authors LIKE :q OR journal LIKE :q OR summary LIKE :q)';
@@ -201,6 +201,32 @@ function get_research_area($pdo, $id) {
     }
 }
 
+function get_research_areas_with_projects($pdo, $limit = 12) {
+    if (!$pdo) return [];
+    try {
+        $stmt = $pdo->prepare('
+            SELECT 
+                ra.id, 
+                ra.title, 
+                ra.slug, 
+                ra.summary, 
+                ra.content, 
+                ra.created_at,
+                COUNT(p.id) as project_count
+            FROM research_areas ra
+            LEFT JOIN projects p ON p.research_area_id = ra.id
+            GROUP BY ra.id
+            ORDER BY ra.created_at DESC 
+            LIMIT :limit
+        ');
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        return [];
+    }
+}
+
 function get_projects($pdo, $limit = 12) {
     if (!$pdo) return [];
     try {
@@ -221,6 +247,19 @@ function get_project($pdo, $id) {
         return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
     } catch (Exception $e) {
         return null;
+    }
+}
+
+function get_projects_by_research_area($pdo, $research_area_id, $limit = 99) {
+    if (!$pdo) return [];
+    try {
+        $stmt = $pdo->prepare('SELECT id, title, slug, summary, objectives, technologies, research_area_id, status, created_at FROM projects WHERE research_area_id = :research_area_id ORDER BY created_at DESC LIMIT :limit');
+        $stmt->bindValue(':research_area_id', (int)$research_area_id, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        return [];
     }
 }
 

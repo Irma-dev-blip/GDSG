@@ -2,13 +2,19 @@
 require_once __DIR__ . '/db.php';
 
 if (!function_exists('get_projects')) {
-    function get_projects()
+    function get_projects($pdo = null, $limit = 99)
     {
-        $pdo = db_connect();
+        if (!$pdo) {
+            $pdo = db_connect();
+        }
         if (!$pdo) {
             return [];
         }
-        $stmt = $pdo->query('SELECT id, title, slug, status, created_at, updated_at FROM projects ORDER BY updated_at DESC');
+        $query = 'SELECT id, title, slug, status, summary, objectives, technologies, created_at, updated_at FROM projects ORDER BY updated_at DESC';
+        if ($limit > 0) {
+            $query .= ' LIMIT ' . (int)$limit;
+        }
+        $stmt = $pdo->query($query);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
@@ -108,4 +114,44 @@ function delete_project_image($id)
     }
     $stmt = $pdo->prepare('DELETE FROM project_images WHERE id = ?');
     return $stmt->execute([$id]);
+}
+
+// Get team members for a project
+function get_project_team($project_id)
+{
+    $pdo = db_connect();
+    if (!$pdo) return [];
+    $stmt = $pdo->prepare('
+        SELECT tm.id, tm.name, tm.position, tm.expertise, tm.photo_url, tm.email, pm.role
+        FROM project_members pm
+        JOIN team_members tm ON pm.team_member_id = tm.id
+        WHERE pm.project_id = ?
+        ORDER BY pm.id ASC
+    ');
+    $stmt->execute([(int)$project_id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Get research area details for a project
+function get_project_research_area($research_area_id)
+{
+    if (!$research_area_id) return null;
+    $pdo = db_connect();
+    if (!$pdo) return null;
+    $stmt = $pdo->prepare('SELECT id, title, slug, summary FROM research_areas WHERE id = ?');
+    $stmt->execute([(int)$research_area_id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+// Format project status as badge
+function get_status_badge($status)
+{
+    $badges = [
+        'ongoing' => ['class' => 'badge bg-info', 'label' => 'Ongoing'],
+        'completed' => ['class' => 'badge bg-success', 'label' => 'Completed'],
+        'planned' => ['class' => 'badge bg-warning', 'label' => 'Planned']
+    ];
+    $status = strtolower($status ?? 'ongoing');
+    $badge = $badges[$status] ?? ['class' => 'badge bg-secondary', 'label' => 'Unknown'];
+    return sprintf('<span class="%s">%s</span>', $badge['class'], htmlspecialchars($badge['label']));
 }

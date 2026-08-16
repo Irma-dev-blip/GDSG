@@ -135,29 +135,42 @@ if ($pdo === null) {
     throw new Exception('Database connection failed - both MySQL and SQLite are unavailable');
 }
 
-// Attempt lightweight migrations: ensure `projects` has `featured_image` and `tags` columns
+// Attempt lightweight migrations: ensure `projects` has additional detailed columns
 try {
     $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
     if ($driver === 'sqlite') {
         $cols = [];
         $res = $pdo->query("PRAGMA table_info(projects)");
         foreach ($res->fetchAll(PDO::FETCH_ASSOC) as $r) { $cols[] = $r['name']; }
-        if (!in_array('featured_image', $cols)) {
-            $pdo->exec("ALTER TABLE projects ADD COLUMN featured_image TEXT");
-        }
-        if (!in_array('tags', $cols)) {
-            $pdo->exec("ALTER TABLE projects ADD COLUMN tags TEXT");
+        
+        $newCols = ['featured_image', 'tags', 'approach', 'outcomes', 'impact', 'key_highlights', 'funding_info', 'timeline', 'deliverables'];
+        foreach ($newCols as $col) {
+            if (!in_array($col, $cols)) {
+                $pdo->exec("ALTER TABLE projects ADD COLUMN $col TEXT");
+            }
         }
     } else {
         // MySQL-compatible: use information_schema to check
         $stmt = $pdo->prepare("SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = :schema AND TABLE_NAME = 'projects'");
         $stmt->execute([':schema' => $config['db']['name']]);
         $cols = $stmt->fetchAll(PDO::FETCH_COLUMN);
-        if (!in_array('featured_image', $cols)) {
-            $pdo->exec("ALTER TABLE projects ADD COLUMN featured_image VARCHAR(255) NULL");
-        }
-        if (!in_array('tags', $cols)) {
-            $pdo->exec("ALTER TABLE projects ADD COLUMN tags VARCHAR(255) NULL");
+        
+        $newCols = [
+            'featured_image' => 'VARCHAR(255)',
+            'tags' => 'VARCHAR(255)',
+            'approach' => 'TEXT',
+            'outcomes' => 'TEXT',
+            'impact' => 'TEXT',
+            'key_highlights' => 'TEXT',
+            'funding_info' => 'VARCHAR(255)',
+            'timeline' => 'VARCHAR(255)',
+            'deliverables' => 'TEXT'
+        ];
+        
+        foreach ($newCols as $col => $type) {
+            if (!in_array($col, $cols)) {
+                $pdo->exec("ALTER TABLE projects ADD COLUMN $col $type NULL");
+            }
         }
     }
 } catch (Exception $e) {

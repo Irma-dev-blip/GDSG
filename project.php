@@ -61,9 +61,9 @@ $projects = [
         'metadata' => [
             'Status' => 'Ongoing',
             'Domain' => 'Agriculture, Earth Observation',
-            'Team' => 'Sir Irteza + 4 researchers',
+            'Team' => 'GDSD',
         ],
-        'pis' => ['Miss Reeha', 'Sir Irteza'],
+        'pis' => ['GDSD'],
     ],
 ];
 

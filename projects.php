@@ -54,13 +54,6 @@ require __DIR__ . '/includes/header.php';
 
 
         </div>
-        <section class="projects-portfolio-note mt-5">
-            <div>
-                <span class="section-kicker">Shared vision</span>
-                <h2 class="h3">From data to decision-support systems</h2>
-            </div>
-            <p class="mb-0">Our research portfolio combines geospatial intelligence, AI/ML, remote sensing, and data engineering to create practical decision-support systems for environmental monitoring, agricultural planning, public health, disaster response, and location-based services across Pakistan and globally.</p>
-        </section>
     </div>
 </section>
 <script>
