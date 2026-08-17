@@ -65,13 +65,6 @@ require __DIR__ . '/includes/header.php';
                     'text'=>'A hands-on workshop covering remote sensing, data fusion, and spatial modeling.',
                     'link'=>'#'
                 ],
-                [
-                    'img'=>'assets/images/Forest_fire_Severity_Murree_Kotli_Map.jpg',
-                    'badge'=>'Research',
-                    'title'=>'Mapping forest fire severity',
-                    'text'=>'New spatial analysis highlights wildfire risk across Murree and Kotli.',
-                    'link'=>'gallery.php'
-                ],
             ];
             foreach ($fallback as $f) {
                 ?>
