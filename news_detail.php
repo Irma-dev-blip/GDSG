@@ -11,7 +11,7 @@ if (!$item) {
     http_response_code(404);
 }
 ?>
-<section class="py-5">
+<section class="py-5 news-detail-page">
     <div class="container">
         <?php if (!$item): ?>
             <div class="alert alert-warning">News item not found.</div>
@@ -25,7 +25,7 @@ if (!$item) {
                         </header>
                         <?php if (!empty($item['featured_image'])): ?>
                             <?php $img = $item['featured_image']; if (strpos($img, '/') !== 0 && strpos($img, 'http') !== 0) $img = '/' . ltrim($img, '/'); ?>
-                            <div class="mb-3 text-center"><img src="<?php echo htmlspecialchars($img); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" class="img-fluid" style="max-height:480px;object-fit:cover;width:100%;border-radius:6px"></div>
+                            <div class="mb-3 text-center"><img src="<?php echo htmlspecialchars($img); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" class="img-fluid news-detail-image" style="max-width:100%;height:auto;object-fit:contain;display:block;margin:0 auto;border-radius:6px;background:#f0f0f0;padding:1rem"></div>
                         <?php endif; ?>
                         <div class="content-break">
                             <?php echo nl2br(htmlspecialchars($item['content'])); ?>
